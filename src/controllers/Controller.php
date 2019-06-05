@@ -1,6 +1,5 @@
 <?php
 
-require 'models/database/Database.php';
 
 $database = new Database();
 $db = $database->connect();
@@ -12,6 +11,7 @@ $result = $recipe->displayData();
 $result = $result->fetchAll();
 
 
-require 'views/index.view.php';
+
+require_once( __DIR__.'/../views/index.view.php');
 
 

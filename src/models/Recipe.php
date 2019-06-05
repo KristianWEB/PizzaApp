@@ -23,4 +23,10 @@ class Recipe
 
         return $sql;
     }
+
+    // Here is where we should insert the data using the controller
+    public function insertData()
+    {
+
+    }
 }

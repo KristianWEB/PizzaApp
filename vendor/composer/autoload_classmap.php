@@ -9,6 +9,6 @@ return array(
     'ComposerAutoloaderInitab72b700fcad6f51d9d5466a0176810a' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInitab72b700fcad6f51d9d5466a0176810a' => $vendorDir . '/composer/autoload_static.php',
-    'Database' => $baseDir . '/models/database/Database.php',
-    'Recipe' => $baseDir . '/models/Recipe.php',
+    'Database' => $baseDir . '/src/models/database/Database.php',
+    'Recipe' => $baseDir . '/src/models/Recipe.php',
 );

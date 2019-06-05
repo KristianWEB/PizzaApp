@@ -10,8 +10,8 @@ class ComposerStaticInitab72b700fcad6f51d9d5466a0176810a
         'ComposerAutoloaderInitab72b700fcad6f51d9d5466a0176810a' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitab72b700fcad6f51d9d5466a0176810a' => __DIR__ . '/..' . '/composer/autoload_static.php',
-        'Database' => __DIR__ . '/../..' . '/models/database/Database.php',
-        'Recipe' => __DIR__ . '/../..' . '/models/Recipe.php',
+        'Database' => __DIR__ . '/../..' . '/src/models/database/Database.php',
+        'Recipe' => __DIR__ . '/../..' . '/src/models/Recipe.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
