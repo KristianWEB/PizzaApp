@@ -5,8 +5,8 @@
 
 <div class="container mt-4">
     <div class="row">
-        <div class="col-lg-3">
             <?php foreach ($result as $item) { ?>
+                <div class="col-lg-3">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $item['title'] ?></h5>
@@ -16,9 +16,8 @@
                     <a href="#" class="btn btn-primary">Delete</a>
                 </div>
             </div>
-            <?php } ?>
-
         </div>
+            <?php } ?>
     </div>
 </div>
 
