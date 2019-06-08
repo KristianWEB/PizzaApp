@@ -12,7 +12,7 @@ php -S localhost:8000
 
 
 # Startup
-navigate to localhost/public to start the app
+navigate to localhost:8000/public to start the app
 ```
 
 ## App Goals
