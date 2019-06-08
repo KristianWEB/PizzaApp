@@ -1,7 +1,7 @@
 {
   "autoload": {
-      "classmap": [
-        "./"
-      ]
+    "psr-4": {
+      "PizzaApp\\": "src/"
+    }
   }
 }

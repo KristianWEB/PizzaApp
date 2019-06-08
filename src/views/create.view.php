@@ -1,28 +1,3 @@
-<?php
-
-
-
-
-/**
- * AS I CAN'T IMPLEMENT THE ROUTER RIGHT NOW I'VE CREATED A SIMPLE FORM VALIDATION
- * JUST TO HAVE THAT SIMPLE THING COVERED . WE NEED TO SEND THE FORM DATA TO /controllers/FormController.php
- *
- *
- *
- * */
-
-
-
-
-
-
-
-?>
-
-
-
-
-
 <?php require 'partials/header.php' ?>
 
 

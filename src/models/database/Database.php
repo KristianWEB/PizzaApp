@@ -1,5 +1,7 @@
 <?php
 
+namespace PizzaApp\models\database;
+use \PDO;
 
 class Database
 {

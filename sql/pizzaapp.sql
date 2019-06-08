@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2019 at 12:42 AM
+-- Generation Time: Jun 08, 2019 at 05:51 PM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `pizzaapp`
 --
+CREATE DATABASE IF NOT EXISTS `pizzaapp` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `pizzaapp`;
 
 -- --------------------------------------------------------
 
@@ -41,7 +43,8 @@ CREATE TABLE `pizzas` (
 --
 
 INSERT INTO `pizzas` (`id`, `title`, `ingredients`, `email`, `created_at`) VALUES
-(1, 'Margarita', 'tomato, cheese', 'placeholderEmail@gmail.com', '2019-06-04 21:26:10');
+(1, 'Capricciosa', 'mozzarella cheese, Italian baked ham, mushroom, artichoke, tomato', 'email@email.com', '2019-06-08 15:47:20'),
+(2, 'Margherita', 'San Marzano tomatoes, mozzarella cheese, fresh basil, salt, olive oil', 'test@gmail.com', '2019-06-08 15:48:38');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +64,7 @@ ALTER TABLE `pizzas`
 -- AUTO_INCREMENT for table `pizzas`
 --
 ALTER TABLE `pizzas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

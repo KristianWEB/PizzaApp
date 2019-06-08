@@ -1,6 +1,9 @@
 <?php
 
-// THIS FILE IS GOING TO BE REFACTORED BECAUSE I DON'T WANT TO DEPEND ON THOSE IFS AND ELSES
+// THIS FILE IS GOING TO BE REFACTORED AFTER BACKEND READY RELEASE
+
+namespace PizzaApp\models;
+
 class Form
 {
 
@@ -21,21 +24,24 @@ class Form
         $this->btn = $btn;
     }
 
-    public  function getItems()
+    public function getItems()
     {
-        return [
-          'titlePOST' => $this->titlePOST,
-          'ingredientsPOST' => $this->ingredientsPOST,
-          'emailPOST' => $this->emailPOST
-        ];
+        if ($this->titlePOST && $this->ingredientsPOST && $this->emailPOST) {
+            return [
+                'titlePOST' => $this->titlePOST,
+                'ingredientsPOST' => $this->ingredientsPOST,
+                'emailPOST' => $this->emailPOST
+            ];
+        }
     }
 
-    private function checkItem($item) {
+    private function checkItem($item)
+    {
         if ($item === $this->title) {
             //check title
             if (empty($_POST[$this->title])) {
 
-               $this->errors['pizzaName'] = "A title is required <br>";
+                $this->errors['pizzaName'] = "A title is required <br>";
 
             } else {
                 $this->titlePOST = $_POST[$this->title];
@@ -50,7 +56,7 @@ class Form
             } else {
                 $this->ingredientsPOST = $_POST[$this->ingredients];
                 if (!preg_match('/^([a-zA-Z\s]+)(, \s*[a-zA-Z\s]*)*$/', $this->ingredientsPOST)) {
-                 $this->errors['pizzaIngredients'] = 'Ingredients must be a comma separated list';
+                    $this->errors['pizzaIngredients'] = 'Ingredients must be a comma separated list';
                     $this->ingredientsPOST = null;
 
                 }
@@ -71,17 +77,18 @@ class Form
 
     public function validate()
     {
-        if (isset($this->btn)) {
+        if (isset($_POST[$this->btn])) {
             $this->checkItem($this->title);
             $this->checkItem($this->ingredients);
             $this->checkItem($this->email);
         }
 
-        $this->titlePOST= htmlspecialchars(strip_tags($this->titlePOST));
+        $this->titlePOST = htmlspecialchars(strip_tags($this->titlePOST));
         $this->ingredientsPOST = htmlspecialchars(strip_tags($this->ingredientsPOST));
         $this->emailPOST = htmlspecialchars(strip_tags($this->emailPOST));
     }
 
+    // just for testing purposes
     public function displayData()
     {
         var_dump($this->titlePOST);
