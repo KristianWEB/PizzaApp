@@ -7,12 +7,12 @@
 # install dependencies
 composer install
 
-# server with PHP's built-in web server ( run this script in project root ) 
+# serve with PHP's built-in web server ( run this script in project root ) 
 php -S localhost:8000
 
 
 # Startup
-navigate to /public to start the app
+navigate to localhost/public to start the app
 ```
 
 ## App Goals
