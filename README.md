@@ -4,6 +4,8 @@
 
 ## Build Setup
 ``` bash
+# import MySQL Database ( included in repo ) 
+
 # install dependencies
 composer install
 
