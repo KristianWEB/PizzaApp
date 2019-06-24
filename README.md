@@ -20,6 +20,7 @@ navigate to localhost:8000/public to start the app
 ## App Goals
 The goal of the app is to implement MVC Design Pattern, also implementing tools like Router, Form validating using vanilla PHP.
 
-## Future Improvements
-1. Refactor the app ( Form.php especially ) 
-2. Improve UI/UX
+## Future Goals
+1. Refactor the app ( Form.php especially ).
+2. Implement Update to create a functional CRUD application.
+3. Improve UI/UX
