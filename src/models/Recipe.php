@@ -2,6 +2,8 @@
 
 namespace src\models;
 
+
+
 class Recipe
 {
     private $conn;
@@ -22,12 +24,13 @@ class Recipe
 
         $sql->execute();
 
-        return $sql;
+        // return the fetched information
+        return $sql->fetchAll();
     }
 
     public function checkRows($row)
     {
-        if ($row === 0 ) {
+        if (!$row) {
             $query = 'ALTER TABLE ' . $this->table. ' AUTO_INCREMENT = 1';
 
 
@@ -72,7 +75,7 @@ class Recipe
     public function delete($id)
     {
 
-        if ($id !== null) {
+        if (!empty($id)) {
             $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
 
             $stmt = $this->conn->prepare($query);

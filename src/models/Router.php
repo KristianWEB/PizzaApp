@@ -4,32 +4,30 @@ namespace src\models;
 
 class Router
 {
-    private $id;
-    protected $routes = [];
+    private static $id;
+    private static $routes = [];
 
-    public function define($routes)
+    public static function define($routes)
     {
-        $this->routes = $routes;
+        self::$routes = $routes;
     }
 
-    public function checkURI()
+    public static function checkURI()
     {
         if (isset($_GET['id'])) {
-            $this->id = (int) $_GET['id'];
+            self::$id = (int) $_GET['id'];
 
-            return $this->id;
+            return self::$id;
         }
 
     }
 
-    public function direct($uri)
+    public static function direct($uri)
     {
-
-       if (array_key_exists($uri, $this->routes)) {
-           return $this->routes[$uri];
+       if (array_key_exists($uri, self::$routes)) {
+           return self::$routes[$uri];
        } else {
            echo 'No route is defined';
        }
-
     }
 }

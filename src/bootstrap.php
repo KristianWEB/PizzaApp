@@ -1,26 +1,16 @@
 <?php
 
-// initialize project
-
-use src\models\database\Database;
 use src\models\Router;
-use src\models\Recipe;
 
-$router = new Router();
-$id = $router->checkURI();
+//check for any ids in the URI( if there are some we will delete them in the controller )
+$id = Router::checkURI();
 
-require_once '../src/models/routes.php';
+Router::define([
+    'public'=>'../src/controllers/Controller.php',
+    'public?id='.$id =>'../src/controllers/Controller.php',
+    'public/create'=>'../src/controllers/FormController.php',
+]);
+
+// redirect to specific controller depending on the uri
 $uri = trim($_SERVER['REQUEST_URI'], '/');
-
-
-// Delete db record if any ( form button throws an id to the url and with get request we immediately delete the specified record ( using id ) from database then we load page again
-
-$database = new Database();
-$db = $database->connect();
-
-$recipe = new Recipe($db);
-
-$recipe->delete($id);
-
-
-require $router->direct($uri);
+require Router::direct($uri);
