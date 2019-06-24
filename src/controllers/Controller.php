@@ -1,7 +1,7 @@
 <?php
 
-use PizzaApp\models\database\Database;
-use PizzaApp\models\Recipe;
+use src\models\database\Database;
+use src\models\Recipe;
 
 $database = new Database();
 $db = $database->connect();

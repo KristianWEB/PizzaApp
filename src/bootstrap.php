@@ -2,9 +2,9 @@
 
 // initialize project
 
-use PizzaApp\models\database\Database;
-use PizzaApp\models\Router;
-use PizzaApp\models\Recipe;
+use src\models\database\Database;
+use src\models\Router;
+use src\models\Recipe;
 
 $router = new Router();
 $id = $router->checkURI();

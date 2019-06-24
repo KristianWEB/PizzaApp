@@ -2,7 +2,7 @@
 
 // THIS FILE IS GOING TO BE REFACTORED AFTER BACKEND READY RELEASE
 
-namespace PizzaApp\models;
+namespace src\models;
 
 class Form
 {

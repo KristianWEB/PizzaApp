@@ -1,6 +1,6 @@
 <?php
 
-namespace PizzaApp\models;
+namespace src\models;
 
 class Router
 {
