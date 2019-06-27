@@ -13,7 +13,8 @@
                     <p class="card-text"><?php echo $item['ingredients'] ?></p>
                     <p class="card-text"><?php echo $item['email'] ?></p>
                     <p class="card-text"><?php echo $item['created_at'] ?></p>
-                    <a href="?id=<?php echo $item['id'] ?>" class="btn btn-primary">Delete</a>
+                    <a href="?id=<?php echo $item['id'] ?>" class="btn btn-danger">Delete</a>
+                    <a href="?id=<?php echo $item['id'] ?>/update" class="btn btn-primary">Update</a>
                 </div>
             </div>
         </div>

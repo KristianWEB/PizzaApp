@@ -3,10 +3,6 @@
 namespace src\models\database;
 use \PDO;
 
-interface IDBConnection {
-    public static function connect();
-}
-
 class MYSQLConnection implements IDBConnection
 {
     // Database parameters

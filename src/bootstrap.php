@@ -1,14 +1,14 @@
 <?php
 
 use src\models\Router;
-
 //check for any ids in the URI( if there are some we will delete them in the controller )
 $id = Router::checkURI();
 
 Router::define([
     'public'=>'../src/controllers/Controller.php',
-    'public?id='.$id =>'../src/controllers/Controller.php',
-    'public/create'=>'../src/controllers/FormController.php',
+    'public?id='.$id=>'../src/controllers/Controller.php',
+    'public/create'=>'../src/controllers/CreateController.php',
+    'public?id='.$id.'/update' => '../src/controllers/UpdateController.php'
 ]);
 
 // redirect to specific controller depending on the uri

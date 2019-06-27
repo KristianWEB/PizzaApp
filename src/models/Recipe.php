@@ -4,23 +4,28 @@ namespace src\models;
 
 
 
+use src\models\database\IDBConnection;
+
 class Recipe
 {
     private $conn;
     private $table = 'pizzas';
 
-    public function __construct($db)
+    public function __construct(IDBConnection $db)
     {
         $this->conn = $db;
     }
 
+    public function connect() {
+        return $this->conn::connect();
+    }
 
     public function displayData()
     {
         $query = 'SELECT * FROM ' . $this->table;
 
 
-        $sql = $this->conn->prepare($query);
+        $sql = $this->connect()->prepare($query);
 
         $sql->execute();
 
@@ -28,13 +33,24 @@ class Recipe
         return $sql->fetchAll();
     }
 
+    public function displaySingle($id)
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id = '. $id;
+
+        $sql = $this->connect()->prepare($query);
+
+        $sql->execute();
+
+        // return the fetched information
+        return $sql->fetchAll();
+    }
     public function checkRows($row)
     {
         if (!$row) {
             $query = 'ALTER TABLE ' . $this->table. ' AUTO_INCREMENT = 1';
 
 
-            $sql = $this->conn->prepare($query);
+            $sql = $this->connect()->prepare($query);
 
             $sql->execute();
 
@@ -44,27 +60,25 @@ class Recipe
     // Here is where we should insert the data using the controller
     public function create($pizzaName, $pizzaIngredients, $pizzaEmail)
     {
-
-        $query = 'INSERT INTO ' .
-            $this->table . '
-            SET title = :title,
-                ingredients = :ingredients,
-                email = :email
-        ';
-
         /**
          * Check if our parameters are filled with data since if they are empty ("") it is considered false
          */
         if ($pizzaName && $pizzaIngredients && $pizzaEmail) {
-            $stmt = $this->conn->prepare($query);
+            $query = 'INSERT INTO ' .
+                $this->table . '
+            SET title = :title,
+                ingredients = :ingredients,
+                email = :email
+        ';
+            $sql = $this->connect()->prepare($query);
 
 
-            $stmt->bindParam(':title', $pizzaName);
-            $stmt->bindParam(':ingredients', $pizzaIngredients);
-            $stmt->bindParam(':email', $pizzaEmail);
+            $sql->bindParam(':title', $pizzaName);
+            $sql->bindParam(':ingredients', $pizzaIngredients);
+            $sql->bindParam(':email', $pizzaEmail);
 
 
-            $stmt->execute();
+            $sql->execute();
 
             header('Location: \public');
 
@@ -78,12 +92,42 @@ class Recipe
         if (!empty($id)) {
             $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
 
-            $stmt = $this->conn->prepare($query);
+            $sql = $this->connect()->prepare($query);
 
 
-            $stmt->bindParam(':id', $id);
+            $sql->bindParam(':id', $id);
 
-            $stmt->execute();
+            $sql->execute();
         }
+    }
+
+    public function update($pizzaName, $pizzaIngredients, $pizzaEmail, $id)
+    {
+
+        $query = 'UPDATE ' .
+            $this->table . '
+            SET title = :title,
+                ingredients = :ingredients,
+                email = :email
+                WHERE id = :id';
+
+        /**
+         * Check if our parameters are filled with data since if they are empty ("") it is considered false
+         */
+        if ($pizzaName && $pizzaIngredients && $pizzaEmail) {
+            $sql = $this->connect()->prepare($query);
+
+
+            $sql->bindParam(':title', $pizzaName);
+            $sql->bindParam(':ingredients', $pizzaIngredients);
+            $sql->bindParam(':email', $pizzaEmail);
+            $sql->bindParam(':id', $id);
+
+            $sql->execute();
+
+            header('Location: \public');
+
+        }
+
     }
 }
