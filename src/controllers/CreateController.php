@@ -17,8 +17,7 @@ $errors = $form->errors;
 
 require  __DIR__ . '/../views/create.view.php';
 
-$db = MYSQLConnection::connect();
-$recipe = new Recipe($db);
+$recipe = new Recipe(new MYSQLConnection());
 
 $items = $form->getItems();
 
